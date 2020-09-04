@@ -1,3 +1,7 @@
+// 폰트
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap");
+@import url(http://fonts.googleapis.com/earlyaccess/amstelvaralpha.css);
+
 // 전체화면 설정
 body {
   margin: 0;
@@ -15,11 +19,13 @@ body {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
-.filterForm-filter-section::-webkit-scrollbar-thumb {
+.filterForm-filter-section::-webkit-scrollbar-thumb,
+.strategy-card-box::-webkit-scrollbar-thumb {
   border-radius: 3px;
   background-color: gray;
 }
-.filterForm-filter-section::-webkit-scrollbar-button {
+.filterForm-filter-section::-webkit-scrollbar-button,
+.strategy-card-box::-webkit-scrollbar-button {
   width: 0;
   height: 0;
 }

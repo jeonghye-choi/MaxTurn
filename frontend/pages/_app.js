@@ -15,6 +15,9 @@ import "../styles/backtest/filterform.scss"
 import "../styles/mypage/mypage.scss"
 import "../styles/mypage/mypage_strategyList.scss"
 
+//community style
+import "../styles/community/community.scss"
+
 // layout style
 import "../styles/layout/dashboardLayout.scss"
 
@@ -23,6 +26,7 @@ import reducer from "../reducers"
 import { Provider } from "react-redux"
 import withRedux from "next-redux-wrapper"
 import { createStore, compose, applyMiddleware } from "redux"
+
 // 동주 수정사항 redux-thunk 추가
 import ReduxThunk from "redux-thunk"
 
