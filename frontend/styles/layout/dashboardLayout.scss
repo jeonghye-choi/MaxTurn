@@ -5,6 +5,7 @@
   // background: pink;
 
   .dashboard-nav {
+    // background: pink;
     display: flex;
     height: 50px;
     // align-items: center;
@@ -13,8 +14,6 @@
     div {
       display: flex;
       align-items: center;
-      // background :pink;
-
       height: 100%;
       margin-right: 5px;
     }
@@ -25,11 +24,15 @@
       font-family: myriad-pro-semiextended, sans-serif;
       font-weight: 300;
       font-style: normal;
+      // background: rgb(105, 54, 62);
       // align-content: space-around;
     }
     .logo {
       flex-grow: 15;
+      margin: 1vh;
       a {
+        width: 5.5vw;
+
         background-image: url(../../static/img/logoWhite.png);
         background-repeat: no-repeat;
         background-size: contain;
