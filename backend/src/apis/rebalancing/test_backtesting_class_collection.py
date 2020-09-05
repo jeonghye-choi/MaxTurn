@@ -35,8 +35,8 @@ class User_input_data:
         print("세팅을 하려면 indicator_list 3개, indicator_min 3개, indicator_max 3개, 투자원금, ")
 
 #   조건1. 지표조건
-    def set_indicator_data(self,INDICATOR_NUM=3,INDICATOR_LIST=["PER","PBR","ROE"],INDICATOR_MIN_LIST = ['1','1','10'],INDICATOR_MAX_LIST = ["10","10","100"]):
-        self.INDICATOR_NUM = INDICATOR_NUM
+    def set_indicator_data(self,INDICATOR_LIST=[],INDICATOR_MIN_LIST = [],INDICATOR_MAX_LIST = []):
+        self.INDICATOR_NUM = 3
         self.INDICATOR_LIST=[]
         for indicator in INDICATOR_LIST:
             self.INDICATOR_LIST.append(indicator)
@@ -60,19 +60,19 @@ class User_input_data:
         self.REBALANCING = str(REBALANCING)                      # 리벨런싱 지표
 
 # 임의의 전략 1
-    def strategy1(self):
-        self.INDICATOR_NUM=3
-        self.INDICATOR_LIST=["PER","PBR","ROE"]
-        self.INDICATOR_MIN_LIST = ['1','1','10']
-        self.INDICATOR_MAX_LIST = ["10","10","100"]
-        self.INVESTMENT_PRINCIPAL_COPY = self.investment_principal=1000000
-        self.DATE_START=20110101
-        self.DATE_END=20190101
-        self.THE_NUMBER_OF_MAXIMUM_EVENT=4
-        self.BUYING_CONDITION=0.9
-        self.sales_profit = self.BUYING_CONDITION* 1.2
-        self.sales_loss = self.BUYING_CONDITION * 0.6
-        self.REBALANCING = "2"
+    # def strategy1(self):
+    #     self.INDICATOR_NUM=3
+    #     self.INDICATOR_LIST=["PER","PBR","ROE"]
+    #     self.INDICATOR_MIN_LIST = ['1','1','10']
+    #     self.INDICATOR_MAX_LIST = ["10","10","100"]
+    #     self.INVESTMENT_PRINCIPAL_COPY = self.investment_principal=1000000
+    #     self.DATE_START=20110101
+    #     self.DATE_END=20190101
+    #     self.THE_NUMBER_OF_MAXIMUM_EVENT=4
+    #     self.BUYING_CONDITION=0.9
+    #     self.sales_profit = self.BUYING_CONDITION* 1.2
+    #     self.sales_loss = self.BUYING_CONDITION * 0.6
+    #     self.REBALANCING = "2"
 
 # 객체 trade
 class Stock_trading_indicator:

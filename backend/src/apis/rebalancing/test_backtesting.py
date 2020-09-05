@@ -66,7 +66,7 @@ def search_rebalanced_enterprise(db,f,user_input,r,j):
     # 여러개 받을 수 있는 코드
     mk_find_dic="{ \"$and\":["
     for i in range(len(user_input.INDICATOR_LIST)):
-        mk_find_dic +="{ \""+user_input.INDICATOR_LIST[i]+"\" : { \"$gte\" : "+user_input.INDICATOR_MIN_LIST[i]+ "  , \"$lte\": "+user_input.INDICATOR_MAX_LIST[i]+"}"+"}"
+        mk_find_dic +="{ \""+user_input.INDICATOR_LIST[i]+"\" : { \"$gte\" : "+str(int(user_input.INDICATOR_MIN_LIST[i])/100)+ "  , \"$lte\": "+str(int(user_input.INDICATOR_MAX_LIST[i])/100)+"}"+"}"
         if i!=len(user_input.INDICATOR_LIST)-1:
             mk_find_dic += " , "
         else:

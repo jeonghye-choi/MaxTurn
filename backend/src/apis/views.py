@@ -10,6 +10,9 @@ from .serializers import userSerializer,strategySerializer,resultSerializer
 
 from .models import User, Strategy, Result
 
+from .rebalancing.test import get_indicator_from_json
+from .rebalancing.test import returnListObj
+
 from .rebalancing import test_backtesting
 from .rebalancing.test_backtesting_class_collection import Init_data,User_input_data,Stock_trading_indicator,Result,Loging
 
@@ -55,6 +58,7 @@ def saveResultInMongo(resultObj):
 		'Reavalanced_code_name_list' : str(resultObj.Reavalanced_code_name_dic)
 	}
 	db.Results.insert_one(returnObj)
+	
 	return returnObj
 
 
@@ -83,6 +87,8 @@ def apiOverview(request):
 		'(Do not use)Result Update':'/result-update/<str:pk>/',
 		'(Do not use)Result Delete':'/result-delete/<str:pk>/',
 		}
+	
+	
 	return Response(api_urls)
 
 
@@ -153,13 +159,17 @@ def strategyCreate(request):
 	if serializer.is_valid():
 		serializer.save()
 		print("strategy is saved!")
-
+	# data preprocessing (userparameters -> indicator list, max valuelist, min valuelist) 
+	listObj1=get_indicator_from_json(request.data)
+	print(listObj1.INDICATOR_LIST)
+	print(listObj1.INDICATOR_MIN_LIST)
+	print(listObj1.INDICATOR_MAX_LIST)
 	# make backtesting object
 	initData = Init_data()
 	userInputData = User_input_data()
 
 	userInputData.set_basic_data(request.data["investment"],request.data["investment_Start"],request.data["investment_End"])
-	userInputData.set_indicator_data()
+	userInputData.set_indicator_data(listObj1.INDICATOR_LIST,listObj1.INDICATOR_MIN_LIST,listObj1.INDICATOR_MAX_LIST)
 	userInputData.set_backtesting_data(request.data["purchaseCondition"]/10,request.data["targetPrice"]/10,request.data["sellPrice"]/10)
 	
 	stockTradingIndicator = Stock_trading_indicator()
@@ -172,14 +182,14 @@ def strategyCreate(request):
 	objTypeResult = saveResultInMongo(resultObj)
 	print("dictionarytype return value")
 	#print(objTypeResult)
-	print(type(objTypeResult))
+	#print(type(objTypeResult))
 	# objTypeResult = JSONEncoder().encode(objTypeResult)
 	objTypeResult = json.loads(json_util.dumps(objTypeResult))
 	print("jsontype return value")
 	#print(objTypeResult)
-	print(type(objTypeResult))
+	#print(type(objTypeResult))
 
-	# return Response(serializer.data)
+	#return Response(serializer.data)
 	return JsonResponse(objTypeResult, safe=False)
 
 
