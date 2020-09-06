@@ -7,7 +7,7 @@
   align-items: stretch;
 
   .result-section {
-    width: 60%;
+    width: 65%;
     height: calc(91vh - 55px);
     // background: yellow;
     display: flex;
@@ -45,19 +45,31 @@
           margin-right: 2vh;
         }
 
-        .item-result-box,
-        .subGraph {
+        .item-result-box {
           width: 50%;
         }
+        .subGraph1,
+        .subGraph2 {
+          width: auto;
+        }
+
         .items,
         .result {
           height: 47%;
           background-color: rgba(255, 255, 255, 0.05);
           margin-bottom: 2vh;
         }
-        .subGraph {
+        .subGraph1,
+        .subGraph2 {
           background-color: rgba(255, 255, 255, 0.05);
         }
+
+        .subGraph1 {
+          margin-right: 2vh;
+        }
+      }
+      .result-box:nth-child(2) {
+        margin-right: 2vh;
       }
     }
     .result-secondLine {
@@ -76,7 +88,7 @@
   }
 
   .parameter-section {
-    width: 40%;
+    width: 35%;
     // height: calc(96vh - 55px);
     height: calc(91vh - 55px);
     display: flex;

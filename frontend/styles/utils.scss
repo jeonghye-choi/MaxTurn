@@ -5,6 +5,7 @@
 // 전체화면 설정
 body {
   margin: 0;
+  width: 100vw;
   background-image: url(../static/img/backgroundImg.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,11 +20,21 @@ body {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
 .filterForm-filter-section::-webkit-scrollbar-thumb,
 .strategy-card-box::-webkit-scrollbar-thumb {
   border-radius: 3px;
   background-color: gray;
 }
+
+body .index::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: rgb(8, 5, 5);
+  height: 50px;
+  width: 50px;
+}
+
+.index::-webkit-scrollbar-button,
 .filterForm-filter-section::-webkit-scrollbar-button,
 .strategy-card-box::-webkit-scrollbar-button {
   width: 0;
