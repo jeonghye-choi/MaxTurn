@@ -75,7 +75,11 @@ const BackTest = () => {
                     <Result />
                   </article>
                 </div>
-                <article className="subGraph">
+                <article className="subGraph1">
+                  {/* 임의의 승률 보여줌*/}
+                  <Doughnut data={winRatestate.data} />
+                </article>
+                <article className="subGraph2">
                   {/* 임의의 승률 보여줌*/}
                   <Doughnut data={winRatestate.data} />
                 </article>

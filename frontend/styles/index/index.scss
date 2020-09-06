@@ -1,9 +1,12 @@
 body .index {
+  width: 100%;
   margin: 0;
+  padding: 0;
   background-image: url(../../static/img/introBackgroundImg.png);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  // overflow-x: hidden;
 }
 
 .index {
