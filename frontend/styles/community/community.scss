@@ -7,7 +7,9 @@
   .strategy-banner {
     width: calc(100% - 4vh);
     height: 20vh;
-    background: rgb(255, 238, 255);
+    background-image: url(../../static/img/communitypage_banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0 2vh 8vh 2vh;
   }
 

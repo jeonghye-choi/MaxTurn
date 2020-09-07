@@ -51,14 +51,14 @@ def rebalancing_date_data(f,user_input):
     f.rebalancing_date_list.append(temp) 
     f.rebalancing_date_list.append(temp) 
     
-    print(f.rebalancing_date_list)
+    #print(f.rebalancing_date_list)
 
 # Function2 : search_rebalanced_enterprise
 # explain : 리벨런싱할때 바꿔주는 기업 코드를 리턴하는 함수 
 def search_rebalanced_enterprise(db,f,user_input,r,j):
     start_data=""
     f.enterprise_list=[]
-    print("f.rebalancing_date_list : "+f.rebalancing_date_list[j])              # 여기에서 문제가 발생
+    #print("f.rebalancing_date_list : "+f.rebalancing_date_list[j])              # 여기에서 문제가 발생
     start_data=f.rebalancing_date_list[j]
     for i,indicator in enumerate(user_input.INDICATOR_LIST):
         user_input.INDICATOR_LIST[i]=user_input.INDICATOR_LIST[i]+"."+start_data
@@ -66,7 +66,7 @@ def search_rebalanced_enterprise(db,f,user_input,r,j):
     # 여러개 받을 수 있는 코드
     mk_find_dic="{ \"$and\":["
     for i in range(len(user_input.INDICATOR_LIST)):
-        mk_find_dic +="{ \""+user_input.INDICATOR_LIST[i]+"\" : { \"$gte\" : "+user_input.INDICATOR_MIN_LIST[i]+ "  , \"$lte\": "+user_input.INDICATOR_MAX_LIST[i]+"}"+"}"
+        mk_find_dic +="{ \""+user_input.INDICATOR_LIST[i]+"\" : { \"$gte\" : "+str(int(user_input.INDICATOR_MIN_LIST[i])/100)+ "  , \"$lte\": "+str(int(user_input.INDICATOR_MAX_LIST[i])/100)+"}"+"}"
         if i!=len(user_input.INDICATOR_LIST)-1:
             mk_find_dic += " , "
         else:
@@ -82,6 +82,7 @@ def search_rebalanced_enterprise(db,f,user_input,r,j):
     for i,indicator in enumerate(user_input.INDICATOR_LIST):
         user_input.INDICATOR_LIST[i]=user_input.INDICATOR_LIST[i][:-8]
     #print(f.enterprise_list)
+
 # Function3 : make_code_date_clasifyed_list
 # explain : 리벨런싱한 기업의 데이터를 리벨런싱 주기별로 바꿔줄 때 사용
 # 여기서 문제점은 분기별이 함수가 실행되는데, 리벨런싱 할때마다 전체 데이터를 저장하는 것이다. 그래서 이를
@@ -232,6 +233,7 @@ def set_result(f,user_input,r):
     r.currentAsset = int(f.investment_principal)
     r.cagr= int(r.profit_all/user_input.INVESTMENT_PRINCIPAL_COPY * 100)
 
+
 def current_investment_asset(f,data,k):
     return int(data["Close"] * f.buy_count[k] + f.partition_invertment_principal[k])
 
@@ -247,21 +249,15 @@ def loging(f,user_input,r,l,data,k):
     if k==(user_input.THE_NUMBER_OF_MAXIMUM_EVENT-1):
         l.routine= l.routine + 1
 
+
 # function10 :    
 def backtesting(initData,userInputData,stockTradingIndicator,result,log):
     # 초기 CLASS 세팅
     f = initData
     user_input=userInputData
-    user_input.strategy1()
     trade = stockTradingIndicator
     l=log
     r = result
-    
-    '''
-    user_input.set_indicator_data()
-    user_input.set_basic_data()
-    user_input.set_backtesting_data()
-    '''
     count=0                          # 리벨런싱 횟수 정해주는 변수
     f.investment_principal = user_input.INVESTMENT_PRINCIPAL_COPY
     client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.kjrlb.mongodb.net/<pnu_sgm_stockdata>?retryWrites=true&w=majority")    # 파이몽고 사용해서
@@ -271,7 +267,7 @@ def backtesting(initData,userInputData,stockTradingIndicator,result,log):
     init_list_condiiton(f,user_input)
     search_rebalanced_enterprise(db,f,user_input,r,0)
     count=make_code_date_clasifyed_list(db,f,user_input,r)
-    r.Assets_by_date_list.append({"Date":0,"Asset":0})
+    #r.Assets_by_date_list.append({"Date":0,"Asset":0})
     count2=count
     # count2 = 리벨런싱한 총 횟수 + 1
     for j in range(0,count2):
@@ -283,8 +279,8 @@ def backtesting(initData,userInputData,stockTradingIndicator,result,log):
             f.partition_invertment_principal.append(f.investment_principal//user_input.THE_NUMBER_OF_MAXIMUM_EVENT)
         f.investment_principal-=f.partition_invertment_principal[0]*user_input.THE_NUMBER_OF_MAXIMUM_EVENT
         for k in range(0,user_input.THE_NUMBER_OF_MAXIMUM_EVENT):
-            print("change enterprise")
-            print("code : "+ f.enterprise_list[k])
+            #print("change enterprise")
+            #print("code : "+ f.enterprise_list[k])
             set_buy_sell_price(f,user_input,trade,k,j)
             for i, data in enumerate(f.code_date_clasifyed_list[k][j]):
                 # 매수 조건
@@ -303,21 +299,24 @@ def backtesting(initData,userInputData,stockTradingIndicator,result,log):
             # 리벨런싱 전에는 가지고 있는 주식을 다 판다.
                 if i==len(f.code_date_clasifyed_list[k][j])-1:
                     lastday_sell_all(f,user_input,r,k,data)
-    print("##########################################")
-    # r.Assets_by_date_list에 dic list형식으로 날짜와 날짜별 자산이 저장됨
-    for j in r.Assets_by_date_list:
-        print(j)
+    #print("##########################################")
+
     #print(r.Assets_by_date_list)
     set_result(f,user_input,r)
-    print("r.Reavalanced_code_name_dic : ")
-    print(r.Reavalanced_code_name_dic)
-    print("profit_all   : " + str(r.profit_all))
-    print("cagr         : " + str(r.cagr)+" %")
-    print("currentAsset : " +str(r.currentAsset))
-    print("win : "+str(r.win))
-    print("lose : "+str(r.lose))
+
+
+    #print("profit_all   : " + str(r.profit_all))
+    #print("currentAsset : " +str(r.currentAsset))
+    #print("cagr         : " + str(r.cagr)+" %")
+
+    #print("##########################################")
+    # r.Assets_by_date_list에 dic list형식으로 날짜와 날짜별 자산이 저장됨
+    #print("r.Reavalanced_code_name_dic : ")
+    #print(r.Reavalanced_code_name_dic)
+
+    #print("##########################################")
+    #print(str(r.Assets_by_date_list))
+    #print("win : "+str(r.win))
+    #print("lose : "+str(r.lose))
     
-
-
-def testfunc():
-    print("hi")
+    return r
