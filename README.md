@@ -24,13 +24,11 @@
 - 커뮤니티에서 의견을 주고받으며 투자에 관한 다양한 지식을 쌓을 수 있습니다. 또한, 전략을 평가받고 부족한 것이나 잘못된 것을 고칠 수 있습니다.
 - 백테스팅으로 구한 수익률 데이터를, 다양한 측면을 반영한 수치로 분석하여 나에게 적합한 전략인지 아닌지 판가름 해줍니다. 
 
-## Working - On
+## Deployed in AWS EC2 - webpages
 
-frontend - next.js npm url: http://afa5523565ae.ngrok.io
-
-backend - django-rest-framework ngrok url: http://fa3849b69ce8.ngrok.io/apis/
-
-backend - django-admin page url: http://fa3849b69ce8.ngrok.io/admin
+frontend - url: http://13.125.225.152:3000/   
+-> still in testing
+backend - django-rest-framework ngrok url: http://13.209.76.4:8080/apis/
 
 mongodb - atlas database: https://cloud.mongodb.com/v2/5f376e368a7cea3dc026163b#clusters
 
