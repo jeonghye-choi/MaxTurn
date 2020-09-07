@@ -1,20 +1,23 @@
-import { MongoClient } from 'mongodb';
-import nextConnect from 'next-connect';
+import { MongoClient } from "mongodb"
+import nextConnect from "next-connect"
 
-const client = new MongoClient('mongodb+srv://admin:admin@cluster0.kjrlb.mongodb.net/test_db_stock?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const client = new MongoClient(
+  "mongodb+srv://admin:admin@cluster0.kjrlb.mongodb.net/<pnu_sgm_platformdata>?retryWrites=true&w=majority"
+)
 
 async function database(req, res, next) {
-  if (!client.isConnected()) await client.connect();
-  req.dbClient = client;
-  req.db = client.db('test_db_stock');
-  return next();
+  if (!client.isConnected()) {
+    await client.connect()
+  }
+
+  req.dbClient = client
+  req.db = client.db("pnu_sgm_platformdata")
+
+  return next()
 }
 
-const middleware = nextConnect();
+const middleware = nextConnect()
 
-middleware.use(database);
+middleware.use(database)
 
-export default middleware;
+export default middleware

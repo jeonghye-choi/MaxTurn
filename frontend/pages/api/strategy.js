@@ -6,11 +6,8 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  let doc = await req.db
-    .collection("Results")
-    // .find({ strategy_result_id: 1 })
-    .find()
-    .toArray()
+  let doc = await req.db.collection("Strategy").find().toArray()
+  console.log("strategy폴더의 doc = ", doc)
   res.json(doc)
 })
 

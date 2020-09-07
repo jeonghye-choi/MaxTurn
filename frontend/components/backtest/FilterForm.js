@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from "react-redux"
 import FilterLayout from "../layout/FilterLayout"
 import useInput from "../LoginForm"
 
-import axios from "axios"
-
 const FilterForm = () => {
   const group = useSelector(state => state.group)
 
@@ -87,8 +85,6 @@ const FilterForm = () => {
 
   // const [strategyOpenStatus, onChangeStrategyOpenStatus] = useInput("")
   // const strategyOpenStatus = useState("")
-  
-  
 
   const onSubmitForm = useCallback(
     e => {
@@ -100,39 +96,103 @@ const FilterForm = () => {
       // if(target.strategyNumber.value){target.strategyNumber.value="1231"}
       // if(target.writerName.value){target.writerName.value="1"}
 
-      if(!target.userROE.value){target.userROE.value=0}
-      if(!target.userROA.value){target.userROA.value=0}
-      if(!target.userSalesPerProfit.value){target.userSalesPerProfit.value=0}
-      if(!target.userSalesPerMargin.value){target.userSalesPerMargin.value=0}
-      if(!target.userSalesIncrese.value){target.userSalesIncrese.value=0}
-      if(!target.userMarginIncrease.value){target.userMarginIncrease.value=0}
-      if(!target.userProfitIncrease.value){target.userProfitIncrease.value=0}
-      if(!target.userDebtRatio.value){target.userDebtRatio.value=0}
-      if(!target.userCurrentRatio.value){target.userCurrentRatio.value=0}
-      if(!target.userOperatingActivityCashFlow.value){target.userOperatingActivityCashFlow.value=0}
-      if(!target.userInvestmentActivityCashFlow.value){target.userInvestmentActivityCashFlow.value=0}
-      if(!target.userFinancialActivityCashFlow.value){target.userFinancialActivityCashFlow.value=0}
-      if(!target.userEPS_Start.value){target.userEPS_Start.value=0}
-      if(!target.userBPS_Start.value){target.userBPS_Start.value=0}
-      if(!target.userCFPS_Start.value){target.userCFPS_Start.value=0}
-      if(!target.userSPS_Start.value){target.userSPS_Start.value=0}
-      if(!target.userDPS_Start.value){target.userDPS_Start.value=0}
-      if(!target.userPER_Start.value){target.userPER_Start.value=0}
-      if(!target.userPBR_Start.value){target.userPBR_Start.value=0}
-      if(!target.userPCR_Start.value){target.userPCR_Start.value=0}
-      if(!target.userPSR_Start.value){target.userPSR_Start.value=0}
-      if(!target.userMarketDiviend_Start.value){target.userMarketDiviend_Start.value=0}
-      if(!target.userEPS_End.value){target.userEPS_End.value=0}
-      if(!target.userBPS_End.value){target.userBPS_End.value=0}
-      if(!target.userCFPS_End.value){target.userCFPS_End.value=0}
-      if(!target.userSPS_End.value){target.userSPS_End.value=0}
-      if(!target.userDPS_End.value){target.userDPS_End.value=0}
-      if(!target.userPER_End.value){target.userPER_End.value=0}
-      if(!target.userPBR_End.value){target.userPBR_End.value=0}
-      if(!target.userPCR_End.value){target.userPCR_End.value=0}
-      if(!target.userPSR_End.value){target.userPSR_End.value=0}
-      if(!target.userMarketDiviend_End.value){target.userMarketDiviend_End.value=0}
-  
+      if (!target.userROE.value) {
+        target.userROE.value = 0
+      }
+      if (!target.userROA.value) {
+        target.userROA.value = 0
+      }
+      if (!target.userSalesPerProfit.value) {
+        target.userSalesPerProfit.value = 0
+      }
+      if (!target.userSalesPerMargin.value) {
+        target.userSalesPerMargin.value = 0
+      }
+      if (!target.userSalesIncrese.value) {
+        target.userSalesIncrese.value = 0
+      }
+      if (!target.userMarginIncrease.value) {
+        target.userMarginIncrease.value = 0
+      }
+      if (!target.userProfitIncrease.value) {
+        target.userProfitIncrease.value = 0
+      }
+      if (!target.userDebtRatio.value) {
+        target.userDebtRatio.value = 0
+      }
+      if (!target.userCurrentRatio.value) {
+        target.userCurrentRatio.value = 0
+      }
+      if (!target.userOperatingActivityCashFlow.value) {
+        target.userOperatingActivityCashFlow.value = 0
+      }
+      if (!target.userInvestmentActivityCashFlow.value) {
+        target.userInvestmentActivityCashFlow.value = 0
+      }
+      if (!target.userFinancialActivityCashFlow.value) {
+        target.userFinancialActivityCashFlow.value = 0
+      }
+      if (!target.userEPS_Start.value) {
+        target.userEPS_Start.value = 0
+      }
+      if (!target.userBPS_Start.value) {
+        target.userBPS_Start.value = 0
+      }
+      if (!target.userCFPS_Start.value) {
+        target.userCFPS_Start.value = 0
+      }
+      if (!target.userSPS_Start.value) {
+        target.userSPS_Start.value = 0
+      }
+      if (!target.userDPS_Start.value) {
+        target.userDPS_Start.value = 0
+      }
+      if (!target.userPER_Start.value) {
+        target.userPER_Start.value = 0
+      }
+      if (!target.userPBR_Start.value) {
+        target.userPBR_Start.value = 0
+      }
+      if (!target.userPCR_Start.value) {
+        target.userPCR_Start.value = 0
+      }
+      if (!target.userPSR_Start.value) {
+        target.userPSR_Start.value = 0
+      }
+      if (!target.userMarketDiviend_Start.value) {
+        target.userMarketDiviend_Start.value = 0
+      }
+      if (!target.userEPS_End.value) {
+        target.userEPS_End.value = 0
+      }
+      if (!target.userBPS_End.value) {
+        target.userBPS_End.value = 0
+      }
+      if (!target.userCFPS_End.value) {
+        target.userCFPS_End.value = 0
+      }
+      if (!target.userSPS_End.value) {
+        target.userSPS_End.value = 0
+      }
+      if (!target.userDPS_End.value) {
+        target.userDPS_End.value = 0
+      }
+      if (!target.userPER_End.value) {
+        target.userPER_End.value = 0
+      }
+      if (!target.userPBR_End.value) {
+        target.userPBR_End.value = 0
+      }
+      if (!target.userPCR_End.value) {
+        target.userPCR_End.value = 0
+      }
+      if (!target.userPSR_End.value) {
+        target.userPSR_End.value = 0
+      }
+      if (!target.userMarketDiviend_End.value) {
+        target.userMarketDiviend_End.value = 0
+      }
+
       dispatch({
         type: "ADD_PARAMETERS",
         data: {
@@ -141,50 +201,56 @@ const FilterForm = () => {
           // writerName:"1",
           // strategyDescription:"1",
 
-          investment: parseInt(target.investment.value,10),
-          investment_Start: parseInt(target.investment_Start.value,10),
-          investment_End: parseInt(target.investment_End.value,10),
-          maxStockNumber: parseInt(target.maxStockNumber.value,10),
-          userMarketCap: parseInt(target.userMarketCap.value,10),
+          investment: parseInt(target.investment.value, 10),
+          investment_Start: parseInt(target.investment_Start.value, 10),
+          investment_End: parseInt(target.investment_End.value, 10),
+          maxStockNumber: parseInt(target.maxStockNumber.value, 10),
+          userMarketCap: parseInt(target.userMarketCap.value, 10),
 
-          userROE: parseInt(target.userROE.value,10),
-          userROA: parseInt(target.userROA.value,10),
-          userSalesPerProfit: parseInt(target.userSalesPerProfit.value,10),
-          userSalesPerMargin: parseInt(target.userSalesPerMargin.value,10),
-          userSalesIncrese: parseInt(target.userSalesIncrese.value,10),
-          userMarginIncrease: parseInt(target.userMarginIncrease.value,10),
-          userProfitIncrease: parseInt(target.userProfitIncrease.value,10),
-          userDebtRatio: parseInt(target.userDebtRatio.value,10),
-          userCurrentRatio: parseInt(target.userCurrentRatio.value,10),
+          userROE: parseInt(target.userROE.value, 10),
+          userROA: parseInt(target.userROA.value, 10),
+          userSalesPerProfit: parseInt(target.userSalesPerProfit.value, 10),
+          userSalesPerMargin: parseInt(target.userSalesPerMargin.value, 10),
+          userSalesIncrese: parseInt(target.userSalesIncrese.value, 10),
+          userMarginIncrease: parseInt(target.userMarginIncrease.value, 10),
+          userProfitIncrease: parseInt(target.userProfitIncrease.value, 10),
+          userDebtRatio: parseInt(target.userDebtRatio.value, 10),
+          userCurrentRatio: parseInt(target.userCurrentRatio.value, 10),
           userOperatingActivityCashFlow: "0",
           userInvestmentActivityCashFlow: "0",
           userFinancialActivityCashFlow: "0",
 
-          userEPS_Start: parseInt(target.userEPS_Start.value,10),
-          userEPS_End: parseInt(target.userEPS_End.value,10),
-          userBPS_Start: parseInt(target.userBPS_Start.value,10),
-          userBPS_End: parseInt(target.userBPS_End.value,10),
-          userCFPS_Start: parseInt(target.userCFPS_Start.value,10),
-          userCFPS_End: parseInt(target.userCFPS_End.value,10),
-          userSPS_Start: parseInt(target.userSPS_Start.value,10),
-          userSPS_End:parseInt(target.userSPS_End.value,10),
-          userDPS_Start: parseInt(target.userDPS_Start.value,10),
-          userDPS_End: parseInt(target.userDPS_End.value,10),
+          userEPS_Start: parseInt(target.userEPS_Start.value, 10),
+          userEPS_End: parseInt(target.userEPS_End.value, 10),
+          userBPS_Start: parseInt(target.userBPS_Start.value, 10),
+          userBPS_End: parseInt(target.userBPS_End.value, 10),
+          userCFPS_Start: parseInt(target.userCFPS_Start.value, 10),
+          userCFPS_End: parseInt(target.userCFPS_End.value, 10),
+          userSPS_Start: parseInt(target.userSPS_Start.value, 10),
+          userSPS_End: parseInt(target.userSPS_End.value, 10),
+          userDPS_Start: parseInt(target.userDPS_Start.value, 10),
+          userDPS_End: parseInt(target.userDPS_End.value, 10),
 
-          userPER_Start: parseInt(target.userPER_Start.value,10),
-          userPER_End: parseInt(target.userPER_End.value,10),
-          userPBR_Start: parseInt(target.userPBR_Start.value,10),
-          userPBR_End: parseInt(target.userPBR_End.value,10),
-          userPCR_Start:parseInt( target.userPCR_Start.value,10),
-          userPCR_End: parseInt(target.userPCR_End.value,10),
-          userPSR_Start: parseInt(target.userPSR_Start.value,10),
-          userPSR_End: parseInt(target.userPSR_End.value,10),
-          userMarketDiviend_Start:parseInt( target.userMarketDiviend_Start.value,10),
-          userMarketDiviend_End: parseInt(target.userMarketDiviend_End.value,10),
+          userPER_Start: parseInt(target.userPER_Start.value, 10),
+          userPER_End: parseInt(target.userPER_End.value, 10),
+          userPBR_Start: parseInt(target.userPBR_Start.value, 10),
+          userPBR_End: parseInt(target.userPBR_End.value, 10),
+          userPCR_Start: parseInt(target.userPCR_Start.value, 10),
+          userPCR_End: parseInt(target.userPCR_End.value, 10),
+          userPSR_Start: parseInt(target.userPSR_Start.value, 10),
+          userPSR_End: parseInt(target.userPSR_End.value, 10),
+          userMarketDiviend_Start: parseInt(
+            target.userMarketDiviend_Start.value,
+            10
+          ),
+          userMarketDiviend_End: parseInt(
+            target.userMarketDiviend_End.value,
+            10
+          ),
 
-          purchaseCondition: parseInt(target.purchaseCondition.value,10),
-          targetPrice: parseInt(target.targetPrice.value,10),
-          sellPrice: parseInt(target.sellPrice.value,10),
+          purchaseCondition: parseInt(target.purchaseCondition.value, 10),
+          targetPrice: parseInt(target.targetPrice.value, 10),
+          sellPrice: parseInt(target.sellPrice.value, 10),
           revalancingPeriod: parseInt("1", 10)
 
           // strategyOpenStatus
@@ -196,15 +262,11 @@ const FilterForm = () => {
       console.log("after", group)
       let data = JSON.stringify(group)
       axios
-        .post(
-          "http://13.209.76.4:8080/apis/strat-create/",
-          data,
-          {
-            headers: {
-              "Content-Type": "application/json"
-            }
+        .post("http://13.209.76.4:8080/apis/strat-create/", data, {
+          headers: {
+            "Content-Type": "application/json"
           }
-        )
+        })
         .then(res => {
           console.log("res", res.data)
         })
@@ -262,6 +324,7 @@ const FilterForm = () => {
       revalancingPeriod
     ]
   )
+  console.log(group)
 
   return (
     <>
@@ -332,6 +395,7 @@ const FilterForm = () => {
                     type="number"
                     name="userROE"
                     value={userROE}
+                    // defaultValue="0"
                     onChange={onChangeUserROE}
                   />
                   이상

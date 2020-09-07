@@ -7,6 +7,9 @@ export const winRate_getData = () => async dispatch => {
     const res = await fetch("http://localhost:3000/api/winRatetest")
     const doc = await res.json()
 
+    console.log(res)
+    console.log(doc)
+
     const winRate_data = []
 
     winRate_data.push(doc.win)
