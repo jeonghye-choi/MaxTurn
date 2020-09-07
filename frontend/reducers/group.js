@@ -1,16 +1,4 @@
 export const initialState = {
-<<<<<<< HEAD
-  strategyName: 0,
-  strategyNumber: 0,
-  writerName: 0,
-  strategyDescription: 0,
-
-  investment: 0,
-  investment_Start: 0,
-  investment_End: 0,
-  maxStockNumber: 0,
-  userMarketCap: 0,
-=======
   strategyName: "test_strategy_front_2",
   strategyNumber: "12311",
   writerName: 1,
@@ -21,7 +9,6 @@ export const initialState = {
   investment_End: "0",
   maxStockNumber: 5,
   userMarketCap: "0",
->>>>>>> cf93cfc250742b32c5d76d19ea61e9b76cdf788d
 
   userROE: 0,
   userROA: 0,
