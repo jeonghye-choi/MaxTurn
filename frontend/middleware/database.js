@@ -2,7 +2,7 @@ import { MongoClient } from "mongodb"
 import nextConnect from "next-connect"
 
 const client = new MongoClient(
-  "mongodb+srv://admin:admin@cluster0.kjrlb.mongodb.net/<pnu_sgm_stockdata>?retryWrites=true&w=majority"
+  "mongodb+srv://admin:admin@cluster0.kjrlb.mongodb.net/<pnu_sgm_platformdata>?retryWrites=true&w=majority"
 )
 
 async function database(req, res, next) {

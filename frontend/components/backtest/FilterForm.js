@@ -4,9 +4,6 @@ import { useSelector, useDispatch } from "react-redux"
 import FilterLayout from "../layout/FilterLayout"
 import useInput from "../LoginForm"
 
-import axios from "axios"
-import groupReducer from "../../reducers/group"
-
 const FilterForm = () => {
   const group = useSelector(state => state.group)
 
