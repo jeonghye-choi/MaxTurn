@@ -5,6 +5,7 @@ import FilterLayout from "../layout/FilterLayout"
 import useInput from "../LoginForm"
 
 import axios from "axios"
+import groupReducer from "../../reducers/group"
 
 const FilterForm = () => {
   const group = useSelector(state => state.group)
@@ -93,6 +94,10 @@ const FilterForm = () => {
       e.preventDefault()
       const target = e.target
 
+      if (!target.userROE.value) {
+        target.userROE.value = 0
+      }
+
       dispatch({
         type: "ADD_PARAMETERS",
         data: {
@@ -156,7 +161,6 @@ const FilterForm = () => {
 
       // 정혜: 데이터보내기 테스트(ERROR상태) --> START
 
-      console.log("after", group)
       // let data = JSON.stringify(group)
       // axios
       //   .post(
@@ -225,6 +229,7 @@ const FilterForm = () => {
       revalancingPeriod
     ]
   )
+  console.log(group)
 
   return (
     <>
@@ -293,6 +298,7 @@ const FilterForm = () => {
                     type="number"
                     name="userROE"
                     value={userROE}
+                    // defaultValue="0"
                     onChange={onChangeUserROE}
                   />
                   이상

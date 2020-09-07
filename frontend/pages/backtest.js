@@ -8,8 +8,8 @@ import OddsGraph from "../components/backtest/OddsGraph"
 import MainGraph from "../components/backtest/MainGraph"
 
 import { useSelector, useDispatch } from "react-redux"
-import addParameters from "../reducers/group"
-import addParametersAction from "../reducers/group"
+import addParameters from "../actions/groupActions"
+import addParametersAction from "../actions/groupActions"
 import { useInput } from "../components/LoginForm"
 
 import axios from "axios"

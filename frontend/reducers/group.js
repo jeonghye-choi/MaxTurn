@@ -1,54 +1,54 @@
 export const initialState = {
-  strategyName: "0",
-  strategyNumber: "0",
-  writerName: "0",
-  strategyDescription: "0",
+  strategyName: 0,
+  strategyNumber: 0,
+  writerName: 0,
+  strategyDescription: 0,
 
-  investment: "0",
-  investment_Start: "0",
-  investment_End: "0",
-  maxStockNumber: "0",
-  userMarketCap: "0",
+  investment: 0,
+  investment_Start: 0,
+  investment_End: 0,
+  maxStockNumber: 0,
+  userMarketCap: 0,
 
-  userROE: "0",
-  userROA: "0",
-  userSalesPerProfit: "0",
-  userSalesPerMargin: "0",
-  userSalesIncrese: "0",
-  userMarginIncrease: "0",
-  userProfitIncrease: "0",
-  userDebtRatio: "0",
-  userCurrentRatio: "0",
-  userOperatingActivityCashFlow: "0",
-  userInvestmentActivityCashFlow: "0",
-  userFinancialActivityCashFlow: "0",
+  userROE: 0,
+  userROA: 0,
+  userSalesPerProfit: 0,
+  userSalesPerMargin: 0,
+  userSalesIncrese: 0,
+  userMarginIncrease: 0,
+  userProfitIncrease: 0,
+  userDebtRatio: 0,
+  userCurrentRatio: 0,
+  userOperatingActivityCashFlow: 0,
+  userInvestmentActivityCashFlow: 0,
+  userFinancialActivityCashFlow: 0,
 
-  userEPS_Start: "0",
-  userEPS_End: "0",
-  userBPS_Start: "0",
-  userBPS_End: "0",
-  userCFPS_Start: "0",
-  userCFPS_End: "0",
-  userSPS_Start: "0",
-  userSPS_End: "0",
-  userDPS_Start: "0",
-  userDPS_End: "0",
+  userEPS_Start: 0,
+  userEPS_End: 0,
+  userBPS_Start: 0,
+  userBPS_End: 0,
+  userCFPS_Start: 0,
+  userCFPS_End: 0,
+  userSPS_Start: 0,
+  userSPS_End: 0,
+  userDPS_Start: 0,
+  userDPS_End: 0,
 
-  userPER_Start: "0",
-  userPER_End: "0",
-  userPBR_Start: "0",
-  userPBR_End: "0",
-  userPCR_Start: "0",
-  userPCR_End: "0",
-  userPSR_Start: "0",
-  userPSR_End: "0",
-  userMarketDiviend_Start: "0",
-  userMarketDiviend_End: "0",
+  userPER_Start: 0,
+  userPER_End: 0,
+  userPBR_Start: 0,
+  userPBR_End: 0,
+  userPCR_Start: 0,
+  userPCR_End: 0,
+  userPSR_Start: 0,
+  userPSR_End: 0,
+  userMarketDiviend_Start: 0,
+  userMarketDiviend_End: 0,
 
-  purchaseCondition: "0",
-  targetPrice: "0",
-  sellPrice: "0",
-  revalancingPeriod: "0"
+  purchaseCondition: 0,
+  targetPrice: 0,
+  sellPrice: 0,
+  revalancingPeriod: 0
 }
 
 export const ADD_PARAMETERS = "ADD_PARAMETERS"
@@ -60,7 +60,7 @@ export const addParametersAction = data => {
   }
 }
 
-export default (state = initialState, action) => {
+const groupReducer = (state = initialState, action) => {
   const { type, data } = action
 
   switch (type) {
@@ -122,3 +122,5 @@ export default (state = initialState, action) => {
     }
   }
 }
+
+export default groupReducer
