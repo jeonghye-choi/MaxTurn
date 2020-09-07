@@ -28,6 +28,7 @@
 
 frontend - url: http://13.125.225.152:3000/   
 -> still in testing
+
 backend - django-rest-framework ngrok url: http://13.209.76.4:8080/apis/
 
 mongodb - atlas database: https://cloud.mongodb.com/v2/5f376e368a7cea3dc026163b#clusters
