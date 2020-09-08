@@ -4,6 +4,11 @@ import { useSelector, useDispatch } from "react-redux"
 import FilterLayout from "../layout/FilterLayout"
 import useInput from "../LoginForm"
 
+// import { lineYield_getData } from "../../actions/lineYieldActions"
+// import showOddsGraph from "./OddsGraph"
+
+import axios from "axios"
+
 const FilterForm = () => {
   const group = useSelector(state => state.group)
 
@@ -257,7 +262,7 @@ const FilterForm = () => {
         }
       })
 
-      // 정혜: 데이터보내기 테스트(ERROR상태) --> START
+      // 정혜: 데이터보내기 테스트(ERROR상태)(승엽 해결) --> START
 
       console.log("after", group)
       let data = JSON.stringify(group)
@@ -275,6 +280,8 @@ const FilterForm = () => {
         })
 
       // ----> END
+
+      // showOddsGraph()
     },
     [
       investment,

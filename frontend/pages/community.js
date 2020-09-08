@@ -55,6 +55,7 @@ const Community = () => {
         <div className="community-contents">
           <section className="strategy-banner">MAXTURN COMMUNITY</section>
           <section className="strategy-card-box">
+            {/* {strategyResponse} */}
             {/* {strategyData.map((data, i) => {
               return (
                 <article className="strategy-card">

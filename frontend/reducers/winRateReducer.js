@@ -4,9 +4,10 @@ const initalState = {
     labels: ["Win", "Lose"],
     datasets: [
       {
-        data: [],
-        backgroundColor: ["#224ABA", "#FF7031"],
-        hoverBackgroundColor: ["#224ABA", "#FF7031"]
+        data: [5, 5],
+        backgroundColor: ["#FF7031", "#224ABA"],
+        borderColor: ["#FF7031", "#224ABA"],
+        hoverBackgroundColor: ["#FF7031", "#224ABA"]
       }
     ]
   }
@@ -27,6 +28,7 @@ const winRateReducer = (state = initalState, action) => {
         loading: false
       }
     case "SUCCESS_WINRATE":
+      console.log("success실행됨")
       return {
         ...state,
         loading: false,
@@ -35,8 +37,9 @@ const winRateReducer = (state = initalState, action) => {
           datasets: [
             {
               data: payload.winRate_data,
-              backgroundColor: ["#224ABA", "#FF7031"],
-              hoverBackgroundColor: ["#224ABA", "#FF7031"]
+              backgroundColor: ["#FF7031", "#224ABA"],
+              borderColor: ["#FF7031", "#224ABA"],
+              hoverBackgroundColor: ["#FF7031", "#224ABA"]
             }
           ]
         }

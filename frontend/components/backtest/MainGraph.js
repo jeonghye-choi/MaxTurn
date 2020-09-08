@@ -13,12 +13,12 @@ const MainGraph = () => {
 
   const fetchData = () => {
     dispatch(lineYield_getData())
-    dispatch(winRate_getData())
+    // dispatch(winRate_getData())
   }
   return (
     <>
       {/* 잘 안보이지만 버튼 누르면 몽고디비에서 코스피 데이터 가져와서 그려줌 */}
-      <button onClick={() => fetchData()}>kospiYield</button>
+      {/* <button onClick={() => fetchData()}>kospiYield</button> */}
       <Line data={Mainstate.data} />
     </>
   )

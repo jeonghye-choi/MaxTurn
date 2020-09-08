@@ -6,8 +6,12 @@ import Result from "../components/backtest/Result"
 import MainGraph from "../components/backtest/MainGraph"
 
 import OddsGraph from "../components/backtest/OddsGraph"
+import { useDispatch } from "react-redux"
 
 const BackTest = () => {
+  // const dispatch = useDispatch()
+  // const winRatestate = useSelector(state => state.winRateReducer)
+
   return (
     <div>
       <DashboardLayout>
