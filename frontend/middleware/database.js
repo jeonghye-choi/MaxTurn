@@ -7,6 +7,7 @@ const client = new MongoClient(
 
 async function database(req, res, next) {
   if (!client.isConnected()) {
+    console.log("unconnected")
     await client.connect()
   }
 
