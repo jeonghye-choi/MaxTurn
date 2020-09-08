@@ -3,12 +3,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { Doughnut } from "react-chartjs-2"
 import { winRate_getData } from "../../actions/winRateActions"
 
-// export function showOddsGraph() {
-//   const dispatch = useDispatch()
-
-//   dispatch(winRate_getData())
-// }
-
 const OddsGraph = () => {
   const dispatch = useDispatch()
 

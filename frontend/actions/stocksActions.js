@@ -4,18 +4,20 @@ export const stocks_getData = () => async dispatch => {
       type: "AWAITING_STOCKS"
     })
 
-    const response = await fetch("http://localhost:3000/api/stocks")
+    const response = await fetch("/api/stocks")
     const data = await response.json()
-    const stocks = data.stocks
-    console.log(stocks)
+
+    console.log("selected_companys", data.selected_companys)
+    const selected_companys = data.selected_companys
+    console.log(typeof selected_companys) //string
+
+    var selectedObj = eval("(" + selected_companys + ")")
+
+    const selected_companys_data = selectedObj["0"]
 
     const stocks_data = []
 
-    const count = stocks.length
-
-    for (var i = 0; i < count; i++) {
-      stocks_data.push(stocks[i])
-    }
+    stocks_data.push(selected_companys_data)
 
     dispatch({
       type: "SUCCESS_STOCKS",

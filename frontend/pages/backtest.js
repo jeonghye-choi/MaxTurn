@@ -2,11 +2,11 @@ import React from "react"
 import DashboardLayout from "../components/layout/DashboardLayout"
 import FilterForm from "../components/backtest/FilterForm"
 import Items from "../components/backtest/Items"
-import Result from "../components/backtest/Result"
+import ResultTable from "../components/backtest/ResultTable"
 import MainGraph from "../components/backtest/MainGraph"
 
 import OddsGraph from "../components/backtest/OddsGraph"
-import { useDispatch } from "react-redux"
+// import { useDispatch } from "react-redux"
 
 const BackTest = () => {
   // const dispatch = useDispatch()
@@ -30,16 +30,12 @@ const BackTest = () => {
                     <Items />
                   </article>
                   <article className="result">
-                    <Result />
+                    <ResultTable />
                   </article>
                 </div>
                 <article className="subGraph1">
                   {/* 임의의 승률 보여줌*/}
                   <OddsGraph />
-                </article>
-                <article className="subGraph2">
-                  {/* ??????????????????????*/}
-                  {/* <Doughnut data={winRatestate.data} /> */}
                 </article>
               </div>
             </div>
