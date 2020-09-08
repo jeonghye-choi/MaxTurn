@@ -1,8 +1,20 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import nextConnect from "next-connect"
+import middleware from "../../middleware/database"
 
-export default (req, res) => {
-  res.statusCode = 200
-  res.json({
-    stocks: ["첫번째종목", "두번째", "세번째", "네번째", "다섯번째"]
-  })
-}
+const handler = nextConnect()
+
+handler.use(middleware)
+
+handler.get(async (req, res) => {
+  // console.log("ok")
+  var myReferenceToThis = this
+  let doc = await req.db //api로 보내는 데이터
+    .collection("Results")
+    .find({}, { projection: { selected_companys: 1, _id: 0 } })
+    .toArray()
+
+  let length = doc.length
+  doc = doc[length - 1]
+  res.json(doc) //요청하면 주는 데이터
+})
+export default handler
