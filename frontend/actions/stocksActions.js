@@ -11,7 +11,7 @@ export const stocks_getData = () => async dispatch => {
     const selected_companys = data.selected_companys
     console.log(typeof selected_companys) //string
 
-    var selectedObj = eval("(" + selected_companys + ")")
+    var selectedObj = eval("(" + selected_companys + ")") //object
 
     const selected_companys_data = selectedObj["0"]
 
