@@ -10,7 +10,7 @@ const stocksReducer = (state = initialState, action) => {
 
   switch (type) {
     case "AWAITING_STOCKS":
-      console.log("awaiting stocks 실행!!")
+      console.log("awaiting stocks")
       return {
         ...state,
         loading: true

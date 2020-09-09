@@ -5,6 +5,7 @@ import lineYieldReducer from "./lineYieldReducer"
 import winRateReducer from "./winRateReducer"
 import capitalGrowthReducer from "./capitalGrowthReducer"
 import stocksReducer from "./stocksReducer"
+import resultTableReducer from "./resultTableReducer"
 
 const rootReducer = combineReducers({
   user,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   lineYieldReducer,
   winRateReducer,
   capitalGrowthReducer,
+  resultTableReducer,
 
   stocksReducer
 })
