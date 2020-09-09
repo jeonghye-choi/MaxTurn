@@ -34,7 +34,11 @@ const DashboardLayout = ({ children }) => {
         </span>
       </nav>
       <div className="main-container">
-        <aside></aside>
+        <aside>
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
+        </aside>
         <main>{children}</main>
       </div>
     </div>

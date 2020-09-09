@@ -10,6 +10,8 @@ import "../styles/index/index.scss"
 // backtest style
 import "../styles/backtest/backtest.scss"
 import "../styles/backtest/filterform.scss"
+import "../styles/backtest/maingraph.scss"
+import "../styles/backtest/subgraph.scss"
 
 // mypage style
 import "../styles/mypage/mypage.scss"
