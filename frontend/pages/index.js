@@ -1,19 +1,25 @@
-import React, { useEffect } from "react"
+import React, { useState } from "react"
 import Link from "next/link"
-import Head from "next/head"
+// import Head from "next/head"
 import { useDispatch, useSelector } from "react-redux"
 // import {LOG_IN, LOG_OUT} from '../reducers/user';
-import { loginAction, logoutAction } from "../reducers/user"
-import LoginForm from "../components/LoginForm"
+// import { loginAction, logoutAction } from "../reducers/user"
+// import LoginForm from "../components/LoginForm"
 
 const Home = () => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   // const {isLoggedIn, user} = useSelector(state => state.user)
   const user = useSelector(state => state.user.user)
   const isLoggedIn = useSelector(state => state.user.isLoggedIn)
-  const { mainGroups } = useSelector(state => state.group)
+  // const { mainGroups } = useSelector(state => state.group)
   console.log(isLoggedIn)
   console.log(user)
+
+  let { menuState, setMenuState } = useState(false)
+
+  const show_menubar = () => {
+    setMenuState(!menuState)
+  }
 
   return (
     <div className="index">
@@ -51,6 +57,8 @@ const Home = () => {
           </Link>
         </span>
       </nav>
+      <i class="fas fa-bars"></i>
+
       {/* <LoginForm/> */}
       <section className="main">
         {/* main */}
@@ -59,8 +67,8 @@ const Home = () => {
           <div>
             Maxturn - 수익률을 확인하고 투자하세요.
             <br></br>
-            맥스턴은 백테스트를 진행하고, 이에 대한 전략을 수립하고 유저들과
-            공유하는 플랫폼입니다.
+            맥스턴은 백테스트를 진행하고, <br />
+            이에 대한 전략을 수립하고 유저들과 공유하는 플랫폼입니다.
           </div>
           <div>맥스턴은 여러분의 시간, 노력을 절감시켜줄 수 있습니다.</div>
         </article>
@@ -122,7 +130,7 @@ const Home = () => {
           </form>
         </article>
       </section>
-      <footer></footer>
+      {/* <footer></footer> */}
     </div>
   )
 }
