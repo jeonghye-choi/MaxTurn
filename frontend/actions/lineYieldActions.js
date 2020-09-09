@@ -4,7 +4,7 @@ export const lineYield_getData = () => async dispatch => {
       type: "AWAITING_LINEYIELD"
     })
 
-    const res = await fetch('http://localhost:3000/api/kospi')
+    const res = await fetch('/api/kospi')
     const doc = await res.json()
     //console.log(doc);
 
