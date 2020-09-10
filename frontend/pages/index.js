@@ -1,19 +1,25 @@
-import React, { useEffect } from "react"
+import React, { useState } from "react"
 import Link from "next/link"
-import Head from "next/head"
+// import Head from "next/head"
 import { useDispatch, useSelector } from "react-redux"
 // import {LOG_IN, LOG_OUT} from '../reducers/user';
-import { loginAction, logoutAction } from "../reducers/user"
-import LoginForm from "../components/LoginForm"
+// import { loginAction, logoutAction } from "../reducers/user"
+// import LoginForm from "../components/LoginForm"
 
 const Home = () => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   // const {isLoggedIn, user} = useSelector(state => state.user)
   const user = useSelector(state => state.user.user)
   const isLoggedIn = useSelector(state => state.user.isLoggedIn)
-  const { mainGroups } = useSelector(state => state.group)
+  // const { mainGroups } = useSelector(state => state.group)
   console.log(isLoggedIn)
   console.log(user)
+
+  let { menuState, setMenuState } = useState(false)
+
+  const show_menubar = () => {
+    setMenuState(!menuState)
+  }
 
   return (
     <div className="index">
@@ -51,6 +57,8 @@ const Home = () => {
           </Link>
         </span>
       </nav>
+      <i class="fas fa-bars"></i>
+
       {/* <LoginForm/> */}
       <section className="main">
         {/* main */}
@@ -122,7 +130,7 @@ const Home = () => {
           </form>
         </article>
       </section>
-      <footer></footer>
+      {/* <footer></footer> */}
     </div>
   )
 }

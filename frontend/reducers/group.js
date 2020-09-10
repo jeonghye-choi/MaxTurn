@@ -67,6 +67,7 @@ const groupReducer = (state = initialState, action) => {
     case ADD_PARAMETERS: {
       return {
         ...state,
+        strategyNumber: data.strategyNumber,
         investment: data.investment,
         investment_Start: data.investment_Start,
         investment_End: data.investment_End,

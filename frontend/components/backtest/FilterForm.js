@@ -13,6 +13,7 @@ const FilterForm = () => {
   const group = useSelector(state => state.group)
 
   const dispatch = useDispatch()
+
   const { strategyName, onChangeStrategyName } = useInput("")
   const { strategyNumber, onChangeStrategyNumber } = useInput("")
   const { writerName, onChangeWriterName } = useInput("")
@@ -205,6 +206,7 @@ const FilterForm = () => {
           // strategyNumber:"1",
           // writerName:"1",
           // strategyDescription:"1",
+          strategyNumber: parseInt(target.strategyNumber.value, 10),
 
           investment: parseInt(target.investment.value, 10),
           investment_Start: parseInt(target.investment_Start.value, 10),
@@ -284,6 +286,7 @@ const FilterForm = () => {
       // showOddsGraph()
     },
     [
+      strategyNumber,
       investment,
       investment_Start,
       investment_End,
@@ -338,6 +341,17 @@ const FilterForm = () => {
       <form name="filterForm" onSubmit={onSubmitForm} className="filter-form">
         <section className="filterForm-filter-section">
           <FilterLayout title="기본설정(필수)">
+            <div>
+              학번 or 아이디
+              <input
+                type="number"
+                name="strategyNumber"
+                value={strategyNumber}
+                onChange={onChangeStrategyNumber}
+                required
+              />
+              * 꼭 입력해주세요
+            </div>
             <div>
               투자금
               <input
@@ -803,9 +817,9 @@ const FilterForm = () => {
           <button className="startButton" type="submit">
             START
           </button>
-          <button className="saveButton" onClick="">
+          {/* <button className="saveButton" onClick="">
             SAVE
-          </button>
+          </button> */}
         </section>
       </form>
     </>

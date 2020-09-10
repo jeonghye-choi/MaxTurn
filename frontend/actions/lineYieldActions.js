@@ -4,38 +4,65 @@ export const lineYield_getData = () => async dispatch => {
       type: "AWAITING_LINEYIELD"
     })
 
-    const res = await fetch('/api/kospi')
-    const doc = await res.json()
-    //console.log(doc);
+    const labels = []
+    const my_data = []
 
-    const labels = [];
-    const kospi_data = [];
-    const my_data = [];
+    const res_my = await fetch("/api/results")
+    const doc_my = await res_my.json()
 
-    //length 기본 예시로 100개만 뽑아봄
-    var length = 100;
-    //mongodb 접속해서
-    for(var i = 0; i < length; i++){
-        var counter = doc[0].kospi[i];
-        
-        var Date = counter.Date;
-        var Close = counter.End;
-        var standard_Close = doc[0].kospi[length - 1].End;
+    var length = doc_my[0].Current_assets_by_date.length
+    var start_date = doc_my[0].Current_assets_by_date[0].Date
+    var end_date = doc_my[0].Current_assets_by_date[length - 1].Date
 
-        //( ( 현재 종가 / 기준날짜 종가 ) -1 )*100
-        // 알고리즘 수익률 또한 위와 같은 식으로 수익률 계산 가능
-        var Yield = ((Close-standard_Close)/standard_Close) * 100;
+    console.log(length)
+    console.log(start_date)
+    console.log(end_date)
 
-        kospi_data.unshift(Yield);
-        labels.unshift(Date);
+    for (var i = 0; i < length; i++) {
+      var counter = doc_my[0].Current_assets_by_date[i]
 
-        if(i == 0){
-          my_data.push(0);
-        }
-        my_data.push(Math.random());
+      var Asset = counter.Asset
+      var standard_Asset = doc_my[0].Current_assets_by_date[0].Asset
 
+      //( ( 현재 종가 / 기준날짜 종가 ) -1 )*100
+      // 알고리즘 수익률 또한 위와 같은 식으로 수익률 계산 가능
+      var my_Yield = ((Asset - standard_Asset) / standard_Asset) * 100
+
+      my_data.push(my_Yield)
+      labels.push(counter.Date)
     }
 
+    const res = await fetch("/api/kospi")
+    const doc = await res.json()
+    const kospi_data = []
+    //console.log(doc);
+    var find_date_index = 0
+    while (1) {
+      if (doc[0].kospi[find_date_index].Date == end_date) {
+        var end_index = find_date_index
+      }
+      if (doc[0].kospi[find_date_index].Date == start_date) {
+        var start_index = find_date_index
+        break
+      }
+      find_date_index++
+    }
+    //start_index = 1058, end_index = 348
+    for (var i = start_index; i >= end_index; --i) {
+      var counter = doc[0].kospi[i]
+
+      var Close = counter.End
+      var standard_Close = doc[0].kospi[start_index].End
+
+      //( ( 현재 종가 / 기준날짜 종가 ) -1 )*100
+      // 알고리즘 수익률 또한 위와 같은 식으로 수익률 계산 가능
+      var kospi_Yield = ((Close - standard_Close) / standard_Close) * 100
+
+      kospi_data.push(kospi_Yield)
+    }
+
+    //length 기본 예시로 100개만 뽑아봄
+    //var length = 100;
 
     dispatch({
       type: "SUCCESS_LINEYIELD",
@@ -46,8 +73,9 @@ export const lineYield_getData = () => async dispatch => {
       }
     })
   } catch (e) {
+    console.log(e)
     dispatch({
-      type: "REJECTED_LINEYIELD",
+      type: "REJECTED_LINEYIELD"
     })
   }
 }

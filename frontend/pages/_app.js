@@ -10,6 +10,8 @@ import "../styles/index/index.scss"
 // backtest style
 import "../styles/backtest/backtest.scss"
 import "../styles/backtest/filterform.scss"
+import "../styles/backtest/maingraph.scss"
+import "../styles/backtest/subgraph.scss"
 
 // mypage style
 import "../styles/mypage/mypage.scss"
@@ -35,6 +37,10 @@ const Songgolmae = ({ Component, store }) => {
     <Provider store={store}>
       <Head>
         <title>송골메</title>
+        <script
+          src="https://kit.fontawesome.com/0178baa171.js"
+          crossorigin="anonymous"
+        ></script>
         {/* <link rel="stylesheet" href="https://use.typekit.net/mel0thu.css"></link> */}
       </Head>
       <Component />

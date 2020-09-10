@@ -16,22 +16,24 @@ const ResultTable = () => {
       <button onClick={() => fetchData()}>BUTTON</button>
       <section>
         <table>
-          <tr>
-            <td>investment</td>
-            <td>{resultTableState.result_table.investment} Won</td>
-          </tr>
-          <tr>
-            <td>TOTAL INCOME</td>
-            <td>{resultTableState.result_table.totalIncome} Won</td>
-          </tr>
-          <tr>
-            <td>CURRENT ASSET</td>
-            <td>{resultTableState.result_table.currentAsset} Won</td>
-          </tr>
-          <tr>
-            <td>FINAL YIELD(CAGR)</td>
-            <td>{resultTableState.result_table.Final_yield} %</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>investment</td>
+              <td>{resultTableState.result_table.investment} Won</td>
+            </tr>
+            <tr>
+              <td>TOTAL INCOME</td>
+              <td>{resultTableState.result_table.totalIncome} Won</td>
+            </tr>
+            <tr>
+              <td>CURRENT ASSET</td>
+              <td>{resultTableState.result_table.currentAsset} Won</td>
+            </tr>
+            <tr>
+              <td>FINAL YIELD(CAGR)</td>
+              <td>{resultTableState.result_table.Final_yield} %</td>
+            </tr>
+          </tbody>
         </table>
       </section>
     </>
