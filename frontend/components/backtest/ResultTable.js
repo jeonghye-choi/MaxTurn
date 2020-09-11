@@ -13,8 +13,8 @@ const ResultTable = () => {
 
   return (
     <>
-      <button onClick={() => fetchData()}>BUTTON</button>
-      <section>
+      {/* <button onClick={() => fetchData()}>BUTTON</button> */}
+      <section className="resultTable-contents">
         <table>
           <tbody>
             <tr>

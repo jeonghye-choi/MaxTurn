@@ -13,7 +13,7 @@ const OddsGraph = () => {
   console.log(winRatestate)
   return (
     <>
-      <button onClick={() => showOddsGraph()}>버튼!!</button>
+      {/* <button onClick={() => showOddsGraph()}>버튼!!</button> */}
       <Doughnut data={winRatestate.data} />
     </>
   )

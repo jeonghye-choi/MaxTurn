@@ -16,6 +16,7 @@ export const stocks_getData = () => async dispatch => {
     const selected_companys_data = selectedObj["0"]
 
     const stocks_data = []
+    console.log("selected_companys_data", selected_companys_data)
 
     stocks_data.push(selected_companys_data)
 
