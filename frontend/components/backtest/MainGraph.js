@@ -20,8 +20,8 @@ const MainGraph = () => {
       {/* <button onClick={() => fetchData()}>kospiYield</button> */}
       <Line
         className="maingraph-box"
-        height="18000px"
-        width="1100px"
+        height="1000"
+        width="1000"
         data={Mainstate.data}
       />
     </section>

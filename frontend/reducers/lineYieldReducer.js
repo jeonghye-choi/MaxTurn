@@ -22,6 +22,9 @@ const initalState = {
         pointRadius: 0.3
       }
     ]
+  },
+  options: {
+    responsive: false
   }
 }
 
