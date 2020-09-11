@@ -12,6 +12,8 @@ import "../styles/backtest/backtest.scss"
 import "../styles/backtest/filterform.scss"
 import "../styles/backtest/maingraph.scss"
 import "../styles/backtest/subgraph.scss"
+import "../styles/backtest/items.scss"
+import "../styles/backtest/resultTable.scss"
 
 // mypage style
 import "../styles/mypage/mypage.scss"
