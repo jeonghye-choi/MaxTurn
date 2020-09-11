@@ -5,7 +5,12 @@ import { stocks_getData } from "../../actions/stocksActions"
 const Items = () => {
   const dispatch = useDispatch()
   const stocksState = useSelector(state => state.stocksReducer)
-  console.log(stocksState)
+  console.log("!!!!!!!!!!", stocksState)
+  console.log("길이!!!", stocksState.stocks.length)
+  console.log("첫번째 요소!!!", stocksState.stocks[0][0])
+
+  const stocksDatas = stocksState.stocks[0]
+  const stocksDataList = stocksDatas.map(stocksData => <div>{stocksData}</div>)
 
   const fetchData = () => {
     dispatch(stocks_getData())
@@ -15,9 +20,7 @@ const Items = () => {
   return (
     <>
       <div>{stocksState.loading}</div>
-      <div>{stocksState.stocks}</div>
-      {/* 임의로 만들어 놓은 버튼! */}
-      {/* <button onClick={() => fetchData()}>버튼</button> */}
+      <div className="items-stockList">{stocksDataList}</div>
     </>
   )
 }

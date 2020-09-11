@@ -14,7 +14,7 @@ const ResultTable = () => {
   return (
     <>
       {/* <button onClick={() => fetchData()}>BUTTON</button> */}
-      <section>
+      <section className="resultTable-contents">
         <table>
           <tbody>
             <tr>
