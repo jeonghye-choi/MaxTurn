@@ -262,7 +262,7 @@ const FilterForm = () => {
           purchaseCondition: parseInt(target.purchaseCondition.value, 10),
           targetPrice: parseInt(target.targetPrice.value, 10),
           sellPrice: parseInt(target.sellPrice.value, 10),
-          revalancingPeriod: parseInt("1", 10)
+          revalancingPeriod: parseInt(target.revalancingPeriod.value, 10)
 
           // strategyOpenStatus
         }
@@ -292,7 +292,6 @@ const FilterForm = () => {
 
       dispatch(lineYield_getData())
       dispatch(resultTable_getData())
-      console.log("!!!!!!!!!!")
     },
     [
       strategyNumber,
@@ -798,23 +797,15 @@ const FilterForm = () => {
                 <div>
                   리밴런싱:
                   <label>
-                    <input
-                      type="radio"
-                      name="revalancingPeriod"
-                      value="분기별"
-                    />
+                    <input type="radio" name="revalancingPeriod" value="0" />
                     분기별
                   </label>
                   <label>
-                    <input type="radio" name="revalancingPeriod" value="연간" />
+                    <input type="radio" name="revalancingPeriod" value="1" />
                     연간
                   </label>
                   <label>
-                    <input
-                      type="radio"
-                      name="revalancingPeriod"
-                      value="선택안함"
-                    />
+                    <input type="radio" name="revalancingPeriod" value="2" />
                     선택안함
                   </label>
                 </div>
