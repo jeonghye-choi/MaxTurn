@@ -14,8 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
+               
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -25,12 +24,15 @@ SECRET_KEY = '()-+1_52o844$@b6vpdtz1d!q+c*0c9p8gl%wymh_rv2#9x)d4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ngrok 사용을 위해 모든 ip 허용
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    #'suit', # admin-page customizing
+    'apis.apps.SuitConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +40,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+# 추가되는 앱들은 여기에. 
+INSTALLED_APPS += [
+    'rest_framework',
+    'corsheaders', # cors header 추가, > pip3 install django-cors-headers  
+    'apis',
+]
+# rest_framework permission 추가
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -47,6 +63,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware'
+]
+
+# rest_framework 관련 middlewares 추가
+MIDDLEWARE += [
+    'corsheaders.middleware.CorsMiddleware',     
+    'django.middleware.common.CommonMiddleware', 
 ]
 
 ROOT_URLCONF = 'prj_sgm.urls'
@@ -74,12 +97,30 @@ WSGI_APPLICATION = 'prj_sgm.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    "default": {
+        "ENGINE": "djongo",
+        "CLIENT": {
+            "host": "mongodb+srv://admin:admin@cluster0.kjrlb.mongodb.net/pnu_sgm_platformdata?retryWrites=true&w=majority",
+            "username": "admin",
+            "password": "admin",
+            "name": "pnu_sgm_platformdata",
+            "authMechanism": "SCRAM-SHA-1",
+        },
     }
 }
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "djongo",
+#         "CLIENT": {
+#             "host": "mongodb+srv://user1:start3we@cluster0.mqlrz.mongodb.net/pj_sgm?retryWrites=true&w=majority",
+#             "username": "user1",
+#             "password": "start3we",
+#             "name": "pj_sgm",
+#             "authMechanism": "SCRAM-SHA-1",
+#         },
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -103,9 +144,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'ko-kr'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -118,3 +158,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# server단에서 cors-allow-all 
+CORS_ORIGIN_ALLOW_ALL = True
+
+# cors resource 특정 도메인 허용
+# CORS_ORIGIN_WHITELIST = [
+#     'http://127.0.0.1:3000',
+# ]
