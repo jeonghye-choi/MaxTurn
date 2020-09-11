@@ -10,19 +10,22 @@ export const lineYield_getData = () => async dispatch => {
     const res_my = await fetch("/api/results")
     const doc_my = await res_my.json()
 
-    var length = doc_my[0].Current_assets_by_date.length
-    var start_date = doc_my[0].Current_assets_by_date[0].Date
-    var end_date = doc_my[0].Current_assets_by_date[length - 1].Date
+    console.log("length", doc_my.length)
+    const current_count = doc_my.length - 1
+
+    var length = doc_my[current_count].Current_assets_by_date.length
+    var start_date = doc_my[current_count].Current_assets_by_date[0].Date
+    var end_date = doc_my[current_count].Current_assets_by_date[length - 1].Date
 
     console.log(length)
     console.log(start_date)
     console.log(end_date)
 
     for (var i = 0; i < length; i++) {
-      var counter = doc_my[0].Current_assets_by_date[i]
+      var counter = doc_my[current_count].Current_assets_by_date[i]
 
       var Asset = counter.Asset
-      var standard_Asset = doc_my[0].Current_assets_by_date[0].Asset
+      var standard_Asset = doc_my[current_count].Current_assets_by_date[0].Asset
 
       //( ( 현재 종가 / 기준날짜 종가 ) -1 )*100
       // 알고리즘 수익률 또한 위와 같은 식으로 수익률 계산 가능
@@ -31,6 +34,8 @@ export const lineYield_getData = () => async dispatch => {
       my_data.push(my_Yield)
       labels.push(counter.Date)
     }
+
+    // ------>  코스피 그래프
 
     const res = await fetch("/api/kospi")
     const doc = await res.json()
