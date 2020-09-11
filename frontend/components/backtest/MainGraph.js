@@ -17,11 +17,11 @@ const MainGraph = () => {
   return (
     <section className="maingraph-contents">
       {/* 잘 안보이지만 버튼 누르면 몽고디비에서 코스피 데이터 가져와서 그려줌 */}
-      <button onClick={() => fetchData()}>kospiYield</button>
+      {/* <button onClick={() => fetchData()}>kospiYield</button> */}
       <Line
         className="maingraph-box"
-        height="900px"
-        width="900px"
+        height="18000px"
+        width="1100px"
         data={Mainstate.data}
       />
     </section>

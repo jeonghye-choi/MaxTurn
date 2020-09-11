@@ -8,6 +8,10 @@ import useInput from "../LoginForm"
 // import showOddsGraph from "./OddsGraph"
 
 import axios from "axios"
+import { lineYield_getData } from "../../actions/lineYieldActions"
+import { winRate_getData } from "../../actions/winRateActions"
+import { stocks_getData } from "../../actions/stocksActions"
+import { resultTable_getData } from "../../actions/resultTableActions"
 
 const FilterForm = () => {
   const group = useSelector(state => state.group)
@@ -282,8 +286,13 @@ const FilterForm = () => {
         })
 
       // ----> END
+      dispatch(stocks_getData())
 
-      // showOddsGraph()
+      dispatch(winRate_getData())
+
+      dispatch(lineYield_getData())
+      dispatch(resultTable_getData())
+      console.log("!!!!!!!!!!")
     },
     [
       strategyNumber,

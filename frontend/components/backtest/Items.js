@@ -17,7 +17,7 @@ const Items = () => {
       <div>{stocksState.loading}</div>
       <div>{stocksState.stocks}</div>
       {/* 임의로 만들어 놓은 버튼! */}
-      <button onClick={() => fetchData()}>버튼</button>
+      {/* <button onClick={() => fetchData()}>버튼</button> */}
     </>
   )
 }
