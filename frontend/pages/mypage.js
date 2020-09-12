@@ -10,11 +10,11 @@ const MyPage = () => {
             <ul>
               <li>
                 <icon>O</icon>
-                <div>folder1</div>
+                <div>MY STRATEGY</div>
               </li>
               <li>
                 <icon>O</icon>
-                <div>folder2</div>
+                <div>STAR STRATEGY</div>
               </li>
             </ul>
           </section>

@@ -9,38 +9,38 @@ const Community = () => {
       const strategyData = strategyResponse.data
       console.log(strategyData)
 
-      const length = strategyData.length
+      // const length = strategyData.length
 
-      for (var i = 0; i < length; i++) {
-        let strategyNumber = strategyData[i].strategyNumber
+      // for (var i = 0; i < length; i++) {
+      //   let strategyNumber = strategyData[i].strategyNumber
 
-        console.log(strategyData)
-        console.log(strategyData[i])
-        console.log(strategyData[i].strategyNumber)
-        console.log(strategyData[i].strategyName)
-        console.log(strategyData[i].writerName_id)
-        console.log(strategyData[i].strategyDescription)
-        /////////////////////////////////////////
+      //   console.log("strategyData", strategyData)
+      //   console.log(strategyData[i])
+      //   console.log(strategyData[i].strategyNumber)
+      //   console.log(strategyData[i].strategyName)
+      //   console.log(strategyData[i].writerName_id)
+      //   console.log(strategyData[i].strategyDescription)
+      //   /////////////////////////////////////////
 
-        console.log(strategyNumber)
+      //   console.log(strategyNumber)
 
-        const resultResponse = axios
-          .get("api/results")
-          .then(function (resultResponse) {
-            const resultData = resultResponse.data
+      // const resultResponse = axios
+      //   .get("api/results")
+      //   .then(function (resultResponse) {
+      //     const resultData = resultResponse.data
 
-            const resultLength = resultData.length
-            for (var j = 0; j < resultLength; j++) {
-              console.log(j)
-              console.log(resultData[j].strategy_result_id)
-              if ((strategyNumber = resultData[j].strategy_result_id)) {
-                let final_yield = resultData[j].Final_yield
-                console.log(final_yield)
-              }
-            }
-          })
-      }
+      //     const resultLength = resultData.length
+      //     for (var j = 0; j < resultLength; j++) {
+      //       console.log(j)
+      //       console.log(resultData[j].strategy_result_id)
+      //       if ((strategyNumber = resultData[j].strategy_result_id)) {
+      //         let final_yield = resultData[j].Final_yield
+      //         console.log(final_yield)
+      //       }
+      //     }
+      //   })
     })
+  // })
 
   // const resultResponse = axios
   //   .get("api/results")
@@ -53,7 +53,7 @@ const Community = () => {
     <>
       <DashboardLayout>
         <div className="community-contents">
-          <section className="strategy-banner">MAXTURN COMMUNITY</section>
+          <section className="strategy-banner"></section>
           <section className="strategy-card-box">
             {/* {strategyResponse} */}
             {/* {strategyData.map((data, i) => {
