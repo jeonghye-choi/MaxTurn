@@ -10,11 +10,11 @@ const MyPage = () => {
             <ul>
               <li>
                 <icon>O</icon>
-                <div>folder1</div>
+                <div>MY STRATEGY</div>
               </li>
               <li>
                 <icon>O</icon>
-                <div>folder2</div>
+                <div>STAR STRATEGY</div>
               </li>
             </ul>
           </section>
@@ -25,8 +25,10 @@ const MyPage = () => {
             </div>
             <ol>
               <li>
-                <div className="mypage_stategyList_strategyName">strategy1</div>
-                <div className="mypage_stategyList_strategyPercentage">NN%</div>
+                <div className="mypage_stategyList_strategyName">
+                  strategy name
+                </div>
+                <div className="mypage_stategyList_strategyPercentage">76%</div>
                 <div className="mypage_stategyList_toggleButton">
                   <label class="switch">
                     <input type="checkbox" />
@@ -35,8 +37,10 @@ const MyPage = () => {
                 </div>
               </li>
               <li>
-                <div className="mypage_stategyList_strategyName">strategy1</div>
-                <div className="mypage_stategyList_strategyPercentage">NN%</div>
+                <div className="mypage_stategyList_strategyName">
+                  strategy name
+                </div>
+                <div className="mypage_stategyList_strategyPercentage">33%</div>
                 <div className="mypage_stategyList_toggleButton">
                   <label class="switch">
                     <input type="checkbox" />
@@ -45,8 +49,12 @@ const MyPage = () => {
                 </div>
               </li>
               <li>
-                <div className="mypage_stategyList_strategyName">strategy1</div>
-                <div className="mypage_stategyList_strategyPercentage">NN%</div>
+                <div className="mypage_stategyList_strategyName">
+                  strategy name
+                </div>
+                <div className="mypage_stategyList_strategyPercentage">
+                  -51%
+                </div>
                 <div className="mypage_stategyList_toggleButton">
                   <label class="switch">
                     <input type="checkbox" />
@@ -55,8 +63,10 @@ const MyPage = () => {
                 </div>
               </li>
               <li>
-                <div className="mypage_stategyList_strategyName">strategy1</div>
-                <div className="mypage_stategyList_strategyPercentage">NN%</div>
+                <div className="mypage_stategyList_strategyName">
+                  strategy name
+                </div>
+                <div className="mypage_stategyList_strategyPercentage">55%</div>
                 <div className="mypage_stategyList_toggleButton">
                   <label class="switch">
                     <input type="checkbox" />
@@ -65,8 +75,10 @@ const MyPage = () => {
                 </div>
               </li>
               <li>
-                <div className="mypage_stategyList_strategyName">strategy1</div>
-                <div className="mypage_stategyList_strategyPercentage">NN%</div>
+                <div className="mypage_stategyList_strategyName">
+                  strategy name
+                </div>
+                <div className="mypage_stategyList_strategyPercentage">22%</div>
                 <div className="mypage_stategyList_toggleButton">
                   <label class="switch">
                     <input type="checkbox" />
@@ -75,8 +87,10 @@ const MyPage = () => {
                 </div>
               </li>
               <li>
-                <div className="mypage_stategyList_strategyName">strategy1</div>
-                <div className="mypage_stategyList_strategyPercentage">NN%</div>
+                <div className="mypage_stategyList_strategyName">
+                  strategy name
+                </div>
+                <div className="mypage_stategyList_strategyPercentage">61%</div>
                 <div className="mypage_stategyList_toggleButton">
                   <label class="switch">
                     <input type="checkbox" />
@@ -100,11 +114,11 @@ const MyPage = () => {
             <article>
               <header>설정지표</header>
               <ul>
-                <li>주당순이익</li>
-                <li>주당순이익</li>
-                <li>주당순이익</li>
-                <li>주당순이익</li>
-                <li>주당순이익</li>
+                <li>투자금 | 70000000 원</li>
+                <li>ROD | 10 이상</li>
+                <li>주당수익배수(PER) | 10이상 1000이하</li>
+                <li>주가순자산배수(PBR) | 10이상 1500이하</li>
+                <li>매수조건 | 시작 날짜 증가 대비 9%</li>
               </ul>
             </article>
             <article>
@@ -112,29 +126,29 @@ const MyPage = () => {
               <table>
                 <tr>
                   <td>투자원금</td>
-                  <td>__만원</td>
+                  <td> 7000 만원</td>
                 </tr>
                 <tr>
                   <td>총 손익</td>
-                  <td>__원</td>
+                  <td>-8782690원</td>
                 </tr>
                 <tr>
                   <td>현재 총 자산 (=투자원금+총 손익)</td>
-                  <td>__원</td>
+                  <td>61217309원</td>
                 </tr>
                 <tr>
                   <td>누적 수익률(CAGR)</td>
-                  <td>__%</td>
+                  <td>-12%</td>
                 </tr>
                 <tr>
                   <td>월간 수익률</td>
-                  <td>__%</td>
+                  <td>13%</td>
                 </tr>
               </table>
             </article>
             <article>
               <button>BACKTEST</button>
-              <div>삭제</div>
+              {/* <div>삭제</div> */}
             </article>
           </section>
         </div>

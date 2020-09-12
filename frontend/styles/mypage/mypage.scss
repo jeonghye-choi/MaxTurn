@@ -9,7 +9,7 @@
     // background: blue;
     width: 25%;
     height: 100%;
-    font-size: 1em;
+    font-size: 1rem;
 
     ul {
       list-style: none;
@@ -18,7 +18,7 @@
       padding: 0;
       margin-top: 15vh;
       li {
-        height: 50%;
+        height: 70%;
         // background: pink;
         width: 100%;
         display: flex;
@@ -48,7 +48,7 @@
       width: calc(100% - 4vw);
       height: 4vh;
       padding: 2vw;
-      font-size: 0.8em;
+      font-size: 0.8rem;
     }
     ol {
       list-style: none;
@@ -61,8 +61,7 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        // background: red;
-
+        font-size: 1rem;
         div {
           display: flex;
           flex-direction: column;
@@ -71,83 +70,25 @@
 
         .mypage_stategyList_strategyName {
           padding: 0 0 0 1vw;
-          // background: pink;
+          font-size: 1rem;
+
           text-align: left;
           height: 100%;
           width: 60%;
-          font-size: 1em;
         }
         .mypage_stategyList_strategyPercentage {
           padding: 0;
-          // background: purple;
           width: 10%;
           height: 100%;
           text-align: right;
+          font-size: 1rem;
         }
         .mypage_stategyList_toggleButton {
           padding: 0;
-          // background: palegoldenrod;
           width: 30%;
           height: 100%;
           text-align: right;
           padding: 0 1vw 0 0;
-
-          //   .toggleButton_switch {
-          //     position: relative;
-          //     display: inline-block;
-          //     width: 60px;
-          //     height: 34px;
-          //     opacity: 0;
-          //     width: 0;
-          //     height: 0;
-
-          //     input {
-          //       opacity: 0;
-          //       width: 0;
-          //       height: 0;
-          //     }
-
-          //     input:checked + .toggleButton_slider {
-          //       background-color: #2196f3;
-          //     }
-
-          //     input:focus + .toggleButton_slider {
-          //       box-shadow: 0 0 1px #2196f3;
-          //     }
-
-          //     input:checked + .toggleButton_slider:before {
-          //       -webkit-transform: translateX(26px);
-          //       -ms-transform: translateX(26px);
-          //       transform: translateX(26px);
-          //     }
-
-          //     .toggleButton_slider {
-          //       border-radius: 34px;
-
-          //       position: absolute;
-          //       cursor: pointer;
-          //       top: 0;
-          //       left: 0;
-          //       right: 0;
-          //       bottom: 0;
-          //       background-color: #ccc;
-          //       -webkit-transition: 0.4s;
-          //       transition: 0.4s;
-          //     }
-          //     .toggleButton_slider:before {
-          //       border-radius: 50%;
-
-          //       position: absolute;
-          //       content: "";
-          //       height: 26px;
-          //       width: 26px;
-          //       left: 4px;
-          //       bottom: 4px;
-          //       background-color: white;
-          //       -webkit-transition: 0.4s;
-          //       transition: 0.4s;
-          //     }
-          //   }
         }
       }
       li:hover {
@@ -170,17 +111,17 @@
       //   background: rgba(74, 71, 121, 0.4);
 
       header {
-        font-size: 2em;
+        font-size: 2rem;
         padding-bottom: 1vh;
       }
       p {
-        font-size: 0.8em;
+        font-size: 0.8rem;
       }
     }
     article:nth-child(2) {
       flex-grow: 5;
       //   background: rgba(74, 71, 121, 0.4);
-      font-size: 0.8em;
+      font-size: 0.9rem;
       display: flex;
       flex-direction: column;
 
@@ -201,14 +142,14 @@
         li {
           height: 3vh;
           width: calc(100% - 4vw);
-          //   background: yellow;
+          margin-left: 2vh;
         }
       }
     }
     article:nth-child(3) {
       flex-grow: 5;
       //   background: rgba(74, 71, 121, 0.4);
-      font-size: 0.8em;
+      font-size: 0.9rem;
       display: flex;
       flex-direction: column;
 
