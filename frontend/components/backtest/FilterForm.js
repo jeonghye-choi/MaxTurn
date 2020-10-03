@@ -273,7 +273,7 @@ const FilterForm = () => {
       console.log("after", group)
       let data = JSON.stringify(group)
       axios
-        .post("http://13.209.76.4:8080/apis/strat-create/", data, {
+        .post("http://54.180.99.150:8080/apis/strat-create/", data, {
           headers: {
             "Content-Type": "application/json"
           }
