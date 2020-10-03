@@ -26,10 +26,10 @@
 
 ## Deployed in AWS EC2 - webpages
 
-frontend - url: http://13.125.225.152:3000/   
+frontend - url: http://15.164.94.132:3000/backtest   
 -> still in testing
 
-backend - django-rest-framework ngrok url: http://13.209.76.4:8080/apis/
+backend - django-rest-framework ngrok url: http://54.180.99.150:8080//apis/
 
 mongodb - atlas database: https://cloud.mongodb.com/v2/5f376e368a7cea3dc026163b#clusters
 
